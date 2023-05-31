@@ -10,8 +10,6 @@ public class KikaPage extends BasePage<KikaPage> {
         super(driver);
     }
 
-    @FindBy(xpath = "//*[@id=\"main\"]/div/h1")
-    private WebElement header;
     @FindBy(xpath = "//*[@id=\"name\"]")
     private WebElement inputName;
     @FindBy(xpath = "//*[@id=\"email\"]")
@@ -23,6 +21,7 @@ public class KikaPage extends BasePage<KikaPage> {
 
     @Step("Send message")
     public KikaPage sendMessage(String name, String email, String message) {
+
         scrollToElement(inputName);
         inputName.sendKeys(name);
         inputEmail.sendKeys(email);
